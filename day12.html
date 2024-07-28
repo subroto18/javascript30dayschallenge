@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error handling</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .title {
+        background-color: #333;
+        padding: 10px 20px;
+        text-align: center;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Error handling</h1>
+
+    <script>
+      const divide = (numenator, denominator) => {
+        if (denominator == 0) {
+          throw new Error("Denominator can not be zero");
+        }
+        return numenator / denominator;
+      };
+
+      try {
+        let result = divide(10, 0);
+        console.log(result);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        console.log("its always run");
+      }
+    </script>
+  </body>
+</html>
