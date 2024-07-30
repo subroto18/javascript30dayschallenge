@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>class</title>
+
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        header{
+         
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            flex: 0 0 auto;
+        }
+        header h1{
+            text-transform: uppercase;
+        }
+
+        .body{
+            background-color: #f0f0f0; /* your desired background color */
+            flex: 1 0 auto;
+            padding: 1em;
+
+            text-align: center;
+
+        }
+
+        .heading{
+            font-size: 28px;
+            text-decoration: underline;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        footer{
+  
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            flex: 0 0 auto;
+        }
+        footer a{
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Day fourteen</h1>
+    </header>
+
+    <section class="body">
+       <div class="topic">
+         <h2 class="heading">Topic</h2>
+         <p class="topic">Class</p>
+
+
+         <div id="output"></div>
+
+       </div>
+    </section>
+
+    <footer>
+        <a target="_blank" href="https://www.linkedin.com/in/subroto-chakraborty-ba8876198/">&copy;Subroto Chakraborty<a>
+    </footer>
+
+    <script>
+        // Defining the Person class
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            describe() {
+                return `${this.name} is ${this.age} years old.`;
+            }
+        }
+
+        // Defining the Employee class that extends Person
+        class Employee extends Person {
+            constructor(name, age, jobTitle) {
+                super(name, age);
+                this.jobTitle = jobTitle;
+            }
+
+            describe() {
+                return `${this.name} is ${this.age} years old and works as a ${this.jobTitle}.`;
+            }
+        }
+
+        // Creating instances of the classes
+        const person1 = new Person('John', 30);
+        const employee1 = new Employee('Jane', 25, 'Software Engineer');
+
+        // Getting the output element
+        const output = document.getElementById('output');
+
+        // Displaying the descriptions
+        output.innerHTML = `<p>${person1.describe()}</p>`;
+        output.innerHTML += `<p>${employee1.describe()}</p>`;
+    </script>
+  </body>
+</html>
