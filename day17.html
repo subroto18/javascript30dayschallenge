@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data structure and algorithm</title>
+
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        header{
+         
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            flex: 0 0 auto;
+        }
+        header h1{
+            text-transform: uppercase;
+        }
+
+        .body{
+            background-color: #f0f0f0; /* your desired background color */
+            flex: 1 0 auto;
+            padding: 1em;
+
+            text-align: center;
+
+        }
+
+        .heading{
+            font-size: 28px;
+            text-decoration: underline;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        footer{
+  
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            flex: 0 0 auto;
+        }
+        footer a{
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Day Seventeen</h1>
+    </header>
+
+    <section class="body">
+       <div class="topic">
+         <h2 class="heading">Topic</h2>
+         <p class="topic">DSA</p>
+
+
+         <div id="output"></div>
+
+       </div>
+    </section>
+
+    <footer>
+        <a target="_blank" href="https://www.linkedin.com/in/subroto-chakraborty-ba8876198/">&copy;Subroto Chakraborty<a>
+    </footer>
+
+    <script>
+
+class Node {
+  constructor(value, next = null) {
+    this.value = value;
+    this.next = next;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  // Add a new node to the end of the list
+  add(value) {
+    const newNode = new Node(value);
+
+    if (this.head === null) {
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      while (current.next !== null) {
+        current = current.next;
+      }
+      current.next = newNode;
+    }
+  }
+
+  // Remove a node with the specified value
+  remove(value) {
+    if (this.head === null) {
+      return;
+    }
+
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let current = this.head;
+    while (current.next !== null && current.next.value !== value) {
+      current = current.next;
+    }
+
+    if (current.next !== null) {
+      current.next = current.next.next;
+    }
+  }
+
+  // Print the values of all nodes in the list
+  print() {
+    let current = this.head;
+    let result = '';
+    while (current !== null) {
+      result += current.value + ' ';
+      current = current.next;
+    }
+    console.log(result.trim());
+  }
+}
+
+// Example usage:
+const list = new LinkedList();
+list.add(1);
+list.add(2);
+list.add(3);
+list.print(); // Output: 1 2 3
+list.remove(2);
+list.print(); // Output: 1 3
+list.remove(1);
+list.print(); // Output: 3
+list.remove(3);
+list.print(); // Output: (empty)
+
+
+    </script>
+  </body>
+</html>
